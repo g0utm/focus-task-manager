@@ -1,16 +1,55 @@
-# React + Vite
+# Focus Task Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A task management dashboard built with React.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Create, Edit, Delete tasks
+- Mark tasks as Completed
+- Filter tasks (All / Active / Completed)
+- High-priority visual styling
+- Focus Limit: Max 3 active High-priority tasks
+- Data persistence using localStorage
 
-## React Compiler
+## Focus Limit Logic
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Before adding a new task, the application checks:
 
-## Expanding the ESLint configuration
+```javascript
+const activeHighCount = tasks.filter(
+  (task) => task.priority === "High" && !task.completed
+).length;
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+If there are already 3 active High-priority tasks, the state update is prevented and a warning message is shown.
+
+## Tech Stack
+
+- React (Vite)
+- JavaScript (ES6+)
+- CSS3
+- LocalStorage API
+
+## How to Run Locally
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/g0utm/focus-task-manager.git
+   ```
+
+2. Navigate into the folder:
+   ```
+   cd focus-task-manager
+   ```
+
+3. Install dependencies:
+   ```
+   npm install
+   ```
+
+4. Start development server:
+   ```
+   npm run dev
+   ```
+
+Open: http://localhost:5173
