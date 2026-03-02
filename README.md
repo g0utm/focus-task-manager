@@ -30,6 +30,13 @@ If there are already 3 active High-priority tasks, the state update is prevented
 - CSS3
 - LocalStorage API
 
+# Live Demo
+
+  The application is deployed in Vercel :
+
+  Live URL :
+  https://focus-task-manager-one.vercel.app/
+
 ## How to Run Locally
 
 1. Clone the repository:
