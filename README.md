@@ -14,6 +14,20 @@ A task management dashboard built with React.
 - Focus Limit: Max 3 active High-priority tasks
 - Data persistence using localStorage
 
+### Auto Priority Detection
+
+The task title is scanned for keywords such as:
+
+- urgent
+- asap
+- important
+- deadline
+- now
+
+If detected, the task is automatically marked as High Priority.
+
+The user can override priority manually, and auto-detection resets until the title is cleared or the task is added.
+
 ## Focus Limit Logic
 
 Before adding a new task, the application checks:
