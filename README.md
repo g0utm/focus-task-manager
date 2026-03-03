@@ -4,9 +4,12 @@ A task management dashboard built with React.
 
 ## Features
 
-- Create, Edit, Delete tasks
+- Create, Display, Edit, Delete tasks
 - Mark tasks as Completed
 - Filter tasks (All / Active / Completed)
+- Sort completed tasks automatically
+- Sort tasks based on priority automatically
+- Detect task priority based on keywords
 - High-priority visual styling
 - Focus Limit: Max 3 active High-priority tasks
 - Data persistence using localStorage
