@@ -375,7 +375,7 @@ button:active {
 .auto-indicator {
   font-size: 12px;
   margin-top: 8px;
-  color: var(--primary);
+  color: orange;
   opacity: 0;
   height: 20px; 
   text-align: right; /* aligns under button nicely */

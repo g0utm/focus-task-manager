@@ -97,7 +97,7 @@ function TaskForm({ onAddTask }) {
       </form>
 
       <div className={`auto-indicator ${autoDetected ? "visible" : ""}`}>
-        {autoDetected ? "⚡ Marked as High Priority" : ""}
+        {autoDetected ? " Detected as High Priority" : ""}
       </div>
     </>
   );
