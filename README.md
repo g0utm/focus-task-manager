@@ -9,7 +9,7 @@ A task management dashboard built with React.
 - Filter tasks (All / Active / Completed)
 - Automatically sort completed tasks
 - Automatically sort tasks based on priority 
-- Detect task priority based on keywords
+- Automatically detect and assign task priority based on keywords
 - High-priority visual styling
 - Focus Limit: Max 3 active High-priority tasks
 - Data persistence using localStorage
