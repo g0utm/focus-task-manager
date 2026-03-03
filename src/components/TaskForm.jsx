@@ -101,7 +101,7 @@ function TaskForm({ onAddTask }) {
                   onClick={() => {
                     setPriority(level);
 
-                    // user override → lock auto detection
+                    // user override = lock auto detection
                     setAutoLocked(true);
                     setAutoDetected(false);
 
