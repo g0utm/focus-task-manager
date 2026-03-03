@@ -10,49 +10,80 @@ function TaskItem({ task, onToggle, onDelete, onEdit }) {
     setIsEditing(false);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSave();
+    }
+  };
+
+  const getBadgeClass = () => {
+    if (task.priority === "High") return "badge-high";
+    if (task.priority === "Medium") return "badge-medium";
+    return "badge-low";
+  };
+
   return (
     <div
-      style={{
-        marginBottom: "10px",
-        padding: "8px",
-        border: task.priority === "High" ? "2px solid red" : "1px solid #ccc",
-        textDecoration: task.completed ? "line-through" : "none",
-      }}
+      className={`task-card 
+        ${task.priority === "High" ? "high" : ""} 
+        ${task.completed ? "completed" : ""}`
+      }
     >
-      <input
-        type="checkbox"
-        checked={task.completed}
-        onChange={() => onToggle(task.id)}
-        style={{ marginRight: "10px" }}
-      />
+      {/* Left Section */}
+      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        <input
+          type="checkbox"
+          checked={task.completed}
+          onChange={() => onToggle(task.id)}
+        />
 
-      {isEditing ? (
-        <>
+        {isEditing ? (
           <input
             value={editText}
             onChange={(e) => setEditText(e.target.value)}
+            onKeyDown={handleKeyDown}
+            autoFocus
           />
-          <button onClick={handleSave}>Save</button>
-          <button onClick={() => setIsEditing(false)}>Cancel</button>
-        </>
-      ) : (
-        <>
-          <strong>{task.title}</strong> - {task.priority}
+        ) : (
+          <span className="task-name">
+            {task.title}
+            <span className={`priority-badge ${getBadgeClass()}`}>
+              {task.priority}
+            </span>
+          </span>
+        )}
+      </div>
+
+      {/* Right Section */}
+      <div style={{ display: "flex", gap: "8px" }}>
+        {isEditing ? (
+          <>
+            <button className="btn-primary" onClick={handleSave}>
+              Save
+            </button>
+            <button
+              className="btn-secondary"
+              onClick={() => setIsEditing(false)}
+            >
+              Cancel
+            </button>
+          </>
+        ) : (
           <button
+            className="btn-secondary"
             onClick={() => setIsEditing(true)}
-            style={{ marginLeft: "10px" }}
           >
             Edit
           </button>
-        </>
-      )}
+        )}
 
-      <button
-        onClick={() => onDelete(task.id)}
-        style={{ marginLeft: "10px" }}
-      >
-        Delete
-      </button>
+        <button
+          className="btn-danger"
+          onClick={() => onDelete(task.id)}
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 }
