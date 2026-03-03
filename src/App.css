@@ -43,7 +43,7 @@ h1 {
   text-align: center;
 }
 
-/* ===== App Container ===== */
+/* App Container */
 
 .app-container {
   width: 95%;
@@ -67,7 +67,7 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* ===== Warning ===== */
+/* Warning */
 
 .warning {
   background: rgba(239, 68, 68, 0.12);
@@ -79,7 +79,7 @@ h1 {
   animation: fadeIn 0.25s ease;
 }
 
-/* ===== Inputs ===== */
+/* Inputs */
 
 input, select {
   padding: 10px 14px;
@@ -97,7 +97,7 @@ input:focus, select:focus {
   box-shadow: 0 0 0 3px rgba(99,102,241,0.25);
 }
 
-/* ===== Buttons ===== */
+/*  Buttons  */
 
 button {
   cursor: pointer;
@@ -132,7 +132,7 @@ button:active {
   color: var(--text-main);
 }
 
-/* ===== Filter ===== */
+/*  Filter  */
 
 .filter-container {
   display: flex;
@@ -152,7 +152,7 @@ button:active {
   box-shadow: 0 0 0 3px rgba(99,102,241,0.25);
 }
 
-/* ===== Task Card ===== */
+/*  Task Card  */
 
 .task-card {
   display: flex;
@@ -188,7 +188,7 @@ button:active {
   transform: scale(0.98);
 }
 
-/* ===== Priority Badge ===== */
+/*  Priority Badge  */
 
 .priority-badge {
   font-size: 11px;
@@ -212,7 +212,7 @@ button:active {
   color: var(--success);
 }
 
-/* ===== Custom Select ===== */
+/*  Custom Select  */
 
 .task-form {
   display: flex;
@@ -238,7 +238,7 @@ button:active {
   flex: 1;
 }
 
-/* ===== Custom Select ===== */
+/*  Custom Select  */
 
 .task-form {
   display: flex;
@@ -337,7 +337,7 @@ button:active {
   transform: scale(0.96);
 }
 
-/* ===== Progress Bar ===== */
+/* Progress Bar  */
 
 .progress-container {
   margin-bottom: 25px;
@@ -388,7 +388,7 @@ button:active {
   transform: translateY(0);
 }
 
-/* ===== Animations ===== */
+/*  Animations  */
 
 @keyframes fadeSlideIn {
   from {
