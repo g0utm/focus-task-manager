@@ -25,7 +25,7 @@ function TaskForm({ onAddTask }) {
   const [priority, setPriority] = useState("Low");
   const [open, setOpen] = useState(false);
 
-  // NEW: lock auto detection after user override
+  // for user override
   const [autoDetected, setAutoDetected] = useState(false);
   const [autoLocked, setAutoLocked] = useState(false);
 
