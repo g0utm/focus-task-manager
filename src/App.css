@@ -406,20 +406,48 @@ button:active {
   to { opacity: 1; }
 }
 
-/* ===== Responsive ===== */
+/*Responsive*/
 
 @media (max-width: 600px) {
+
   .app-container {
-    padding: 25px;
+    padding: 20px;
+  }
+
+  .task-form {
+    flex-direction: column;
+  }
+
+  .custom-select {
+    width: 100%;
   }
 
   .task-card {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 12px;
   }
 
-  button {
+  .task-card.high {
+    border-left: none;
+    border-top: 4px solid var(--danger);
+  }
+
+  .task-card > div:last-child {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+  }
+
+  .task-card > div:last-child button {
+    flex: 1;
+  }
+
+  .filter-container {
+    flex-direction: column;
+  }
+
+  .filter-container button {
     width: 100%;
   }
 }

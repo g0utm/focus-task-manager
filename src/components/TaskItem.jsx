@@ -45,12 +45,12 @@ function TaskItem({ task, onToggle, onDelete, onEdit }) {
             autoFocus
           />
         ) : (
-          <span className="task-name">
-            {task.title}
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <span className="task-name">{task.title}</span>
             <span className={`priority-badge ${getBadgeClass()}`}>
-              {task.priority}
+            {task.priority}
             </span>
-          </span>
+          </div>
         )}
       </div>
 
