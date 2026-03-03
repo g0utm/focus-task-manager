@@ -24,10 +24,28 @@ function TaskForm({ onAddTask }) {
   const [title, setTitle] = useState("");
   const [priority, setPriority] = useState("Low");
   const [open, setOpen] = useState(false);
+
+  // NEW: lock auto detection after user override
   const [autoDetected, setAutoDetected] = useState(false);
+  const [autoLocked, setAutoLocked] = useState(false);
 
   useEffect(() => {
-    const suggestion = getSuggestedPriority(title);
+    const trimmed = title.trim();
+
+    // If title cleared → reset everything
+    if (!trimmed) {
+      setAutoDetected(false);
+      setAutoLocked(false);
+      return;
+    }
+
+    // If user manually changed priority → no auto detect
+    if (autoLocked) {
+      setAutoDetected(false);
+      return;
+    }
+
+    const suggestion = getSuggestedPriority(trimmed);
 
     if (suggestion === "High") {
       setPriority("High");
@@ -35,7 +53,7 @@ function TaskForm({ onAddTask }) {
     } else {
       setAutoDetected(false);
     }
-  }, [title]);
+  }, [title, autoLocked]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,10 +61,11 @@ function TaskForm({ onAddTask }) {
 
     onAddTask({ title, priority });
 
-    // Reset cleanly
+    // Reset everything after add
     setTitle("");
     setPriority("Low");
     setAutoDetected(false);
+    setAutoLocked(false);
     setOpen(false);
   };
 
@@ -80,7 +99,11 @@ function TaskForm({ onAddTask }) {
                   }`}
                   onClick={() => {
                     setPriority(level);
-                    setAutoDetected(false); // manual override
+
+                    // user override → lock auto detection
+                    setAutoLocked(true);
+                    setAutoDetected(false);
+
                     setOpen(false);
                   }}
                 >
@@ -97,7 +120,7 @@ function TaskForm({ onAddTask }) {
       </form>
 
       <div className={`auto-indicator ${autoDetected ? "visible" : ""}`}>
-        {autoDetected ? " Detected as High Priority" : ""}
+        {autoDetected ? "⚡ Marked as High Priority" : ""}
       </div>
     </>
   );
