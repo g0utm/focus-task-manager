@@ -32,14 +32,15 @@ function TaskForm({ onAddTask }) {
   useEffect(() => {
     const trimmed = title.trim();
 
-    // If title cleared → reset everything
+    // override auto detect
+    // empty input field
     if (!trimmed) {
       setAutoDetected(false);
       setAutoLocked(false);
       return;
     }
 
-    // If user manually changed priority → no auto detect
+    // change priority
     if (autoLocked) {
       setAutoDetected(false);
       return;
